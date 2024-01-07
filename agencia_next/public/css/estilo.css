@@ -1,0 +1,121 @@
+html {
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+
+}
+
+.corpoPagina {
+	z-index: 1;
+	margin-bottom: 4.5em;
+	padding-top: 3.4em;
+}
+
+.opacity {
+	opacity: 0.7 !important;
+}
+
+/* imagem de fundo da pagina*/
+#fundo {
+	position: fixed;
+	opacity: 1;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+
+}
+
+.navbar {
+	background-color: rgb(44, 114, 201) !important;
+	margin: 0px;
+	padding: 0px;
+	top: 0px;
+	position: fixed !important;
+	width: 100%;
+	z-index: 1;
+}
+
+.fundo-nav {
+	background-color: rgb(44, 114, 201) !important;
+	color: white;
+}
+
+a {
+	text-decoration: none !important;
+}
+
+/* pagina Contato*/
+#bodyContato {
+	margin-top: 1em;
+	width: 100%;
+}
+
+#bodyContato th {
+	margin-top: 5%;
+	margin-bottom: 2%;
+}
+
+#spanContato {
+	color: rgb(7, 7, 7);
+}
+
+
+/* estilo da pagina home*/
+
+#sectionHome {
+	opacity: 0.85;
+}
+
+
+
+#sectionHome .card-header {
+	background-color: rgb(188, 221, 221) !important;
+	font-weight: bold;
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	font-size: 15pt;
+
+
+}
+
+#sectionHome .card {
+	max-width: 100%;
+	box-shadow: 1px 1px 3px rgb(60, 63, 67);
+}
+
+#cardHome p {
+	font-size: 15pt;
+	font-style: italic;
+}
+
+/* estilo pra pagina Destino*/
+
+#cardDestino .card {
+	border-color: rgb(218, 226, 226) !important;
+	border-radius: 15px !important;
+	box-shadow: 1px 1px 1px 1px rgb(189, 194, 201);
+
+}
+
+/* estilo de formulario*/
+
+#formPage {
+	border-color: rgb(0, 0, 0) !important;
+	box-shadow: 2px 2px 5px rgb(0, 0, 0);
+	border-radius: 15px !important;
+}
+
+/* estilo de pagina promoção*/
+
+#sectionPromo #cardPromo {
+	border-color: rgb(218, 226, 226) !important;
+	box-shadow: 1px 1px 1px 1px rgb(189, 194, 201);
+	opacity: 0.9;
+
+}
+
+
+#cardPromo .card-header {
+	background-color: rgb(113, 173, 242) !important;
+	color: rgb(71, 16, 16);
+	font-size: 13pt;
+}
