@@ -57,7 +57,7 @@ export default function UpdateUsuario() {
 
                 <div className="form-group my-3">
                     <label htmlFor="iCpf" className="form-label"> CPF: </label>
-                    <input required type="text" id="iCpf" name="cpf" maxLength={11} value={usuario.cpf} onChange={handleInputChange} className="form-control" />
+                    <input required readOnly type="text" id="iCpf" name="cpf" maxLength={11} value={usuario.cpf} onChange={handleInputChange} className="form-control" />
                 </div>
 
                 <div className="form-group my-3">

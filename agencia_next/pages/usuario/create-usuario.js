@@ -1,13 +1,42 @@
 import axios from 'axios'
 import { useRouter } from 'next/router'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 
 
 export default function CreateUsuario() {
 
-    const [newUsuario, setNewUsuario] = useState({ nome: '', cpf: '', dataNascimento: null, email: '', telefone: '', endereco: '', cidade: '', estado: '' });
+    const [newUsuario, setNewUsuario] = useState({ nome:'', cpf: '' , dataNascimento: null, email: '', telefone: '', endereco: '', cidade: '', estado: '' });
     const router = useRouter();
+    const [cpfValido, setCpfValido] = useState(true);
+    const [Usuario, setUsuario] = useState(null)
+
+
+    useEffect(() => {
+        axios
+            .get("http://localhost:8080/usuarios/cpf/" + newUsuario.cpf)
+            .then((response) => {
+                setUsuario(response.data)
+             })
+            .catch((error) => {
+                console.error("CPF não encontrado ou Usuario não existe", error);
+            });
+    }, [newUsuario.cpf])
+
+    useEffect(() => {
+
+        if (typeof Usuario !== 'object' || Usuario === null) {
+            setCpfValido(false);
+        }
+        else {
+            setCpfValido(true);
+        };
+
+    }, [Usuario]);
+
+    const handleInputChange = (e) => {
+        setNewUsuario({ ...newUsuario, [e.target.name]: e.target.value })
+    }
 
     const handleAddUsuario = () => {
         axios
@@ -17,14 +46,11 @@ export default function CreateUsuario() {
             }
             )
             .catch((error) => {
-                alert("Erro ao inserir novo Usuario:" + error);
+                alert("Erro ao inserir novo Usuario. Certifique que todos os campos estão preenchidos!");
                 console.log(newUsuario);
             })
     }
 
-    const handleInputChange = (e) => {
-        setNewUsuario({ ...newUsuario, [e.target.name]: e.target.value })
-    }
 
     return (
         <>
@@ -73,7 +99,7 @@ export default function CreateUsuario() {
                     <input required type="text" id="iCidade" name="cidade" value={newUsuario.cidade} onChange={handleInputChange} className="form-control" />
                 </div>
 
-                <button onClick={handleAddUsuario} className="btn btn-primary">Cadastrar</button>
+               {cpfValido ? null : <button onClick={handleAddUsuario} className="btn btn-primary">Cadastrar</button>}
                 <a href="/usuario" className="btn btn-danger mx-3">
                     Cancelar
                 </a>
